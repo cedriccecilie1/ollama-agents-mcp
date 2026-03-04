@@ -3,3 +3,4 @@ build/
 .claude/settings.json
 .claude/settings.local.json
 .claude/.edit-baks/
+.claude/repos/
