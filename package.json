@@ -1,0 +1,20 @@
+{
+  "name": "ollama-agents-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that delegates tasks to local LLM agents via Ollama",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  }
+}
