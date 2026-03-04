@@ -95,6 +95,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const model = agent.config.model ?? OLLAMA_MODEL;
 
   const systemParts = [agent.systemPrompt];
+  if (agent.contextFiles.length > 0) {
+    for (const cf of agent.contextFiles) {
+      systemParts.push(`\n\n---\n## Reference: ${cf.label}\n\n${cf.content}`);
+    }
+  }
   if (agent.memory) {
     systemParts.push("\n\n---\n## Persistent Memory\n\n" + agent.memory);
   }

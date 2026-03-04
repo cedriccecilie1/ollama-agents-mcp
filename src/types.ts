@@ -4,6 +4,15 @@ export interface AgentConfig {
   temperature?: number;
   max_tokens?: number;
   description?: string;
+  /** Absolute paths to files injected as context in the system prompt */
+  context_files?: string[];
+}
+
+/** A loaded context file ready for prompt injection */
+export interface ContextFile {
+  path: string;
+  label: string;
+  content: string;
 }
 
 /** Fully loaded agent definition */
@@ -14,6 +23,7 @@ export interface AgentDefinition {
   memory: string;
   config: AgentConfig;
   dirPath: string;
+  contextFiles: ContextFile[];
 }
 
 /** Ollama /api/chat request */
